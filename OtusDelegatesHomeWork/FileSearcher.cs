@@ -6,7 +6,7 @@ namespace OtusDelegatesHomeWork
     {
         public delegate void FileFound(FileSearcher sender, FileFoundEventArgs e);
         public event FileFound? FileFoundEventHandler;
-        public bool cancel = false;
+        public bool Cancel = false;
         /// <summary>
         /// Поиск файлов в указанной дирректории по имени файла
         /// </summary>
@@ -20,7 +20,7 @@ namespace OtusDelegatesHomeWork
                 {
                     foreach (string file in Directory.GetFiles(directoryPath,".", SearchOption.AllDirectories))
                     {
-                        if (cancel) return;
+                        if (Cancel) return;
                         var regex = new Regex($"^{fileName.ToLower()}");
                         if (regex.IsMatch(Path.GetFileName(file).ToLower()))
                             FileFoundEventHandler?.Invoke(this, new FileFoundEventArgs { Message = file});                        
