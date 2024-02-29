@@ -56,7 +56,7 @@
             if (key == 'q')
             {
                 Console.WriteLine();
-                fileSearcher.cancel = true; 
+                fileSearcher.Cancel = true; 
             }
         }
         static void DisplayFileInfo(FileSearcher sender, FileFoundEventArgs e)
